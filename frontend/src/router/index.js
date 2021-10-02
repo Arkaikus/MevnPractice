@@ -17,6 +17,11 @@ const routes = [
     component: () => import('../views/SignIn.vue')
   },
   {
+    path: '/signup',
+    name: 'SignUp',
+    component: () => import('../views/SignUp.vue')
+  },
+  {
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('../views/Dashboard.vue')
@@ -25,7 +30,7 @@ const routes = [
     path: '/pricing',
     name: 'Pricing',
     component: () => import('../views/Pricing.vue')
-  },
+  },  
 ]
 
 const router = createRouter({

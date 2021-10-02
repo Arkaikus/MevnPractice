@@ -9,7 +9,7 @@
         width="72"
         height="57"
       />
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 fw-normal">Sign In</h1>
 
       <div class="form-floating">
         <input
@@ -60,7 +60,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .form-signin {
   width: 100%;
   max-width: 330px;

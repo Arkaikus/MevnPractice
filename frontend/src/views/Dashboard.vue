@@ -332,7 +332,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .bi {
   fill: currentColor;
 }

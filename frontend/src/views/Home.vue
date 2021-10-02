@@ -135,7 +135,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .site-header {
   background-color: rgba(0, 0, 0, 0.85);
   -webkit-backdrop-filter: saturate(180%) blur(20px);

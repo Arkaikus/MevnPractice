@@ -20,6 +20,10 @@ This repo contains MEVN Stack practice with [bootstrap examples](https://getboot
 
 ![sign in image](img/2.png)
 
+- Sign up
+
+![sign up image](img/5.png)
+
 - Dashboard
 
 ![dashboard image](img/3.png)
