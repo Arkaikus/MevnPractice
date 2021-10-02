@@ -1,75 +1,76 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: () => import('../views/Home.vue')
-  },  
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
+    path: "/",
+    name: "Home",
+    component: () => import("../views/Home.vue"),
   },
   {
-    path: '/signin',
-    name: 'SignIn',
-    component: () => import('../views/SignIn.vue')
+    path: "/about",
+    name: "About",
+    component: () => import("../views/About.vue"),
   },
   {
-    path: '/signup',
-    name: 'SignUp',
-    component: () => import('../views/SignUp.vue')
+    path: "/signin",
+    name: "SignIn",
+    component: () => import("../views/SignIn.vue"),
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue'),
-    children :[
+    path: "/signup",
+    name: "SignUp",
+    component: () => import("../views/SignUp.vue"),
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () => import("../views/Dashboard.vue"),
+    children: [
       {
-        path:"",
-        component: ()=>import('../components/Dashboard/Home.vue'),
+        path: "/dashboard/",
+        component: () => import("../components/Dashboard/Home.vue"),
       },
       {
-        path:"posts",
-        component: ()=>import('../components/Dashboard/Posts.vue'),
+        path: "/dashboard/posts",
+        component: () => import("../components/Dashboard/Posts/List.vue"),
       },
       {
-        path:"products",
-        component: ()=>import('../components/Dashboard/Products.vue'),
+        path: "/dashboard/products",
+        component: () => import("../components/Dashboard/Products/List.vue"),
       },
       {
-        path:"customers",
-        component: ()=>import('../components/Dashboard/Customers.vue'),
-      }
-    ]
+        path: "/dashboard/customers",
+        component: () =>
+          import("../components/Dashboard/Customers/List.vue"),
+      },
+    ],
   },
   {
-    path: '/pricing',
-    name: 'Pricing',
-    component: () => import('../views/Pricing.vue')
-  },  
+    path: "/pricing",
+    name: "Pricing",
+    component: () => import("../views/Pricing.vue"),
+  },
   {
-    path: '/features',
-    name: 'Features',
-    component: () => import('../views/Features.vue')
-  }, 
+    path: "/features",
+    name: "Features",
+    component: () => import("../views/Features.vue"),
+  },
   {
-    path: '/heroes',
-    name: 'Heroes',
-    component: () => import('../views/Heroes.vue')
-  }, 
+    path: "/heroes",
+    name: "Heroes",
+    component: () => import("../views/Heroes.vue"),
+  },
   {
-    path: '/carousel',
-    name: 'Carousel',
-    component: () => import('../views/Carousel.vue')
-  }, 
-]
+    path: "/carousel",
+    name: "Carousel",
+    component: () => import("../views/Carousel.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
-})
+  linkActiveClass: "active",
+  routes,
+});
 
-export default router
-
+export default router;

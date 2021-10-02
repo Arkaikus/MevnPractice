@@ -27,21 +27,13 @@
       <hr />
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <router-link class="nav-link active" to="/dashboard/">
+          <router-link class="nav-link text-white" to="/dashboard/">
             <svg class="bi me-2" width="16" height="16">
               <use xlink:href="#home" />
             </svg>
             Home
           </router-link>
-        </li>
-        <!-- <li>
-          <a href="#" class="nav-link text-white">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#speedometer2" />
-            </svg>
-            Dashboard
-          </a>
-        </li> -->
+        </li>        
         <li>
           <router-link class="nav-link text-white" to="/dashboard/posts">
             <svg class="bi me-2" width="16" height="16">

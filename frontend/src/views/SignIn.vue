@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     handleSubmitForm() {
-      this.$router.push("/Dashboard");
+      this.$router.push("/dashboard/");
     },
   },
 };

@@ -3,27 +3,27 @@
     <div class="container d-flex flex-wrap">
       <ul class="nav me-auto">
         <li class="nav-item">
-          <router-link class="nav-link link-dark px-2 active" to="/">
+          <router-link class="nav-link link-dark px-2" :to="{name:'Home'}">
             Home
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link link-dark px-2 active" to="/pricing">
+          <router-link class="nav-link link-dark px-2" :to="{name:'Pricing'}">
             Pricing
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link link-dark px-2 active" to="/features">
+          <router-link class="nav-link link-dark px-2" :to="{name:'Features'}">
             Features
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link link-dark px-2 active" to="/heroes">
+          <router-link class="nav-link link-dark px-2" :to="{name:'Heroes'}">
             Heroes
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link link-dark px-2 active" to="/carousel">
+          <router-link class="nav-link link-dark px-2" :to="{name:'Carousel'}">
             Carousel
           </router-link>
         </li>

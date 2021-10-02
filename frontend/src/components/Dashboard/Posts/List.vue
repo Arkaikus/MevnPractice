@@ -12,7 +12,7 @@
     "
   >
     <h1 class="h2">Posts</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-toolbar mb-2 mb-md-0">      
       <div class="btn-group me-2">
         <button type="button" class="btn btn-sm btn-outline-secondary">
           Share
