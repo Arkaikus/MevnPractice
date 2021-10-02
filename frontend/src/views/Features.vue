@@ -66,6 +66,8 @@
     </div>
   </div>
 
+  <div class="b-example-divider"></div>
+
   <div class="container px-4 py-5" id="hanging-icons">
     <h2 class="pb-2 border-bottom">Hanging icons</h2>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
@@ -119,6 +121,8 @@
       </div>
     </div>
   </div>
+
+  <div class="b-example-divider"></div>
 
   <div class="container px-4 py-5" id="custom-cards">
     <h2 class="pb-2 border-bottom">Custom cards</h2>
@@ -272,6 +276,8 @@
     </div>
   </div>
 
+  <div class="b-example-divider"></div>
+
   <div class="container px-4 py-5" id="icon-grid">
     <h2 class="pb-2 border-bottom">Icon grid</h2>
 
@@ -384,6 +390,9 @@
       </div>
     </div>
   </div>
+
+  <div class="b-example-divider"></div>
+  
   <Footer />
 </template>
 
