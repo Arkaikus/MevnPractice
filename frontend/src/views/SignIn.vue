@@ -1,15 +1,5 @@
 <template>
-  <nav class="py-2 bg-light border-bottom">
-    <div class="container d-flex flex-wrap">
-      <ul class="nav me-auto">
-        <li class="nav-item">
-          <router-link class="nav-link link-dark px-2 active" to="/"
-            >Home</router-link
-          >
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <Navbar />
   <main class="form-signin mt-5">
     <form class="text-center" @submit.prevent="handleSubmitForm">
       <img
@@ -50,26 +40,17 @@
       </button>
     </form>
   </main>
-  <Footer />
+  <!-- <Footer /> -->
 </template>
 
 <script>
 // import axios from "axios";
-import Footer from '@/components/Footer.vue';
+import Navbar from '@/components/Navbar.vue';
 
 export default {
   components: {
-    Footer
+    Navbar
   },
-  //   data() {
-  //     return {
-  //       student: {
-  //         name: "",
-  //         email: "",
-  //         phone: "",
-  //       },
-  //     };
-  //   },
   methods: {
     handleSubmitForm() {
       this.$router.push("/Dashboard");

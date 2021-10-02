@@ -1,9 +1,6 @@
 <template>
-  <!-- <div class="home"> -->
-  <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <!-- </div> -->
   <Navbar />
+  <DefaultHeader />
   <main>
     <div
       class="
@@ -124,35 +121,29 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
+import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
+import DefaultHeader from "@/components/DefaultHeader.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    Navbar, Footer
-  }
-}
-
+    Navbar,
+    Footer,
+    DefaultHeader,
+  },
+};
 </script>
 
 <style>
-.container {
-  max-width: 960px;
-}
-
-/*
- * Custom translucent site header
- */
-
 .site-header {
-  background-color: rgba(0, 0, 0, .85);
+  background-color: rgba(0, 0, 0, 0.85);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
 }
 .site-header a {
   color: #8e8e8e;
-  transition: color .15s ease-in-out;
+  transition: color 0.15s ease-in-out;
 }
 .site-header a:hover {
   color: #fff;
@@ -181,7 +172,7 @@ export default {
   bottom: 10%;
   left: 10px;
   content: "";
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
 }
 
@@ -192,7 +183,6 @@ export default {
   left: 5%;
   background-color: #e5e5e5;
 }
-
 
 /*
  * Extra utilities
@@ -206,5 +196,4 @@ export default {
     flex: 1;
   }
 }
-
 </style>

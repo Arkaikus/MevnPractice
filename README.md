@@ -24,7 +24,11 @@ This repo contains MEVN Stack practice with [bootstrap examples](https://getboot
 
 ![dashboard image](img/3.png)
 
+- Pricing
+
+![pricing image](img/4.png)
+
 ## LICENCE
 
-MIT Licence
+MIT Licence  
 Check the LICENCE file
