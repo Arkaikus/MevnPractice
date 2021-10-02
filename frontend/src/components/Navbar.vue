@@ -22,6 +22,11 @@
             Heroes
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link link-dark px-2 active" to="/carousel">
+            Carousel
+          </router-link>
+        </li>
       </ul>
       <ul class="nav">
         <li class="nav-item">

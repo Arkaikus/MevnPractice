@@ -40,6 +40,10 @@ This repo contains MEVN Stack practice with [bootstrap examples](https://getboot
 
 ![heroes image](img/7.png)
 
+- Carousel
+
+![carousel image](img/8.png)
+
 ## LICENCE
 
 MIT Licence  

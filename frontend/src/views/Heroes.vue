@@ -243,8 +243,8 @@ import DefaultHeader from "@/components/DefaultHeader.vue";
 export default {
   components: {
     Navbar,
+    DefaultHeader,
     Footer,
-    DefaultHeader,    
   },
 };
 </script>

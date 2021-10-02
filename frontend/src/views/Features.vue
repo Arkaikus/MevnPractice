@@ -392,7 +392,7 @@
   </div>
 
   <div class="b-example-divider"></div>
-  
+
   <Footer />
 </template>
 
@@ -406,9 +406,9 @@ export default {
   name: "Features",
   components: {
     Navbar,
-    Footer,
     DefaultHeader,
     SvgFeatures,
+    Footer,
   },
 };
 </script>

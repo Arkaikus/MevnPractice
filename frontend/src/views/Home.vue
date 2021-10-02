@@ -129,8 +129,8 @@ export default {
   name: "Home",
   components: {
     Navbar,
-    Footer,
     DefaultHeader,
+    Footer,
   },
 };
 </script>
