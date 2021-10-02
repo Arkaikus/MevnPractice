@@ -12,6 +12,11 @@
             Pricing
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link link-dark px-2 active" to="/features">
+            Features
+          </router-link>
+        </li>
       </ul>
       <ul class="nav">
         <li class="nav-item">

@@ -32,6 +32,10 @@ This repo contains MEVN Stack practice with [bootstrap examples](https://getboot
 
 ![pricing image](img/4.png)
 
+- Features
+
+![features image](img/6.png)
+
 ## LICENCE
 
 MIT Licence  
