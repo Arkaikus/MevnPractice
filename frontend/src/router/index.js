@@ -24,7 +24,25 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue')
+    component: () => import('../views/Dashboard.vue'),
+    children :[
+      {
+        path:"",
+        component: ()=>import('../components/Dashboard/Home.vue'),
+      },
+      {
+        path:"posts",
+        component: ()=>import('../components/Dashboard/Posts.vue'),
+      },
+      {
+        path:"products",
+        component: ()=>import('../components/Dashboard/Products.vue'),
+      },
+      {
+        path:"customers",
+        component: ()=>import('../components/Dashboard/Customers.vue'),
+      }
+    ]
   },
   {
     path: '/pricing',
