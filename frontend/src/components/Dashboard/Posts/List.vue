@@ -12,7 +12,16 @@
     "
   >
     <h1 class="h2">Posts</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">      
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <router-link
+          type="button"
+          class="btn btn-primary"
+          to="/dashboard/posts/save"
+        >
+          Create Post
+        </router-link>
+      </div>
       <div class="btn-group me-2">
         <button type="button" class="btn btn-sm btn-outline-secondary">
           Share
@@ -40,34 +49,54 @@
     </div>
   </div>
 
-  <h2>Section title</h2>
   <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
+          <th>Title</th>
+          <th>Content</th>
+          <th>State</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1,001</td>
-          <td>random</td>
-          <td>data</td>
-          <td>placeholder</td>
-          <td>text</td>
-        </tr>
-        <tr>
-          <td>1,001</td>
-          <td>random</td>
-          <td>data</td>
-          <td>placeholder</td>
-          <td>text</td>
+        <tr v-for="post in posts" :key="post._id">
+          <td>{{ post.title }}</td>
+          <td>{{ post.content }}</td>
+          <td>{{ post.state }}</td>
+          <td>
+            <router-link
+              :to="{ name: 'PostUpdate', params: { id: post._id } }"
+              class="btn btn-sm btn-primary"
+            >
+              Edit
+            </router-link>
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
+
+<script>
+// @click.prevent="deleteStudent(student._id)" <- delete button action
+export default {
+  data() {
+    return {
+      posts: [],
+    };
+  },
+  created() {
+    // TODO: Fetch data from api
+    this.posts = [
+      {
+        _id: "1",
+        title: "Example",
+        content: "Content example",
+        state: "created",
+      },
+    ];
+  },
+};
+</script>

@@ -32,7 +32,18 @@ const routes = [
       },
       {
         path: "/dashboard/posts",
+        name:"PostList",
         component: () => import("../components/Dashboard/Posts/List.vue"),
+      },
+      {
+        path: "/dashboard/posts/save",
+        name:"PostCreate",
+        component: () => import("../components/Dashboard/Posts/Save.vue"),
+      },
+      {
+        path: "/dashboard/posts/save/:id",
+        name:"PostUpdate",
+        component: () => import("../components/Dashboard/Posts/Save.vue"),
       },
       {
         path: "/dashboard/products",
