@@ -50,9 +50,29 @@ const routes = [
         component: () => import("../components/Dashboard/Products/List.vue"),
       },
       {
+        path: "/dashboard/products/save",
+        name:"ProductCreate",
+        component: () => import("../components/Dashboard/Products/Save.vue"),
+      },
+      {
+        path: "/dashboard/products/save/:id",
+        name:"ProductUpdate",
+        component: () => import("../components/Dashboard/Products/Save.vue"),
+      },
+      {
         path: "/dashboard/customers",
         component: () =>
           import("../components/Dashboard/Customers/List.vue"),
+      },
+      {
+        path: "/dashboard/customers/save",
+        name:"CustomerCreate",
+        component: () => import("../components/Dashboard/Customers/Save.vue"),
+      },
+      {
+        path: "/dashboard/customers/save/:id",
+        name:"CustomerUpdate",
+        component: () => import("../components/Dashboard/Customers/Save.vue"),
       },
     ],
   },

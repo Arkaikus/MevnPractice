@@ -98,7 +98,7 @@
 
     <!-- CONTENT -->
     <div class="container-fluid px-5 overflow-scroll">
-      <router-view></router-view>
+      <router-view />
     </div>
   </div>
 </template>

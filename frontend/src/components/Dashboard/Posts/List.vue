@@ -81,6 +81,7 @@
 
 <script>
 // @click.prevent="deleteStudent(student._id)" <- delete button action
+// TODO: Implement pagination
 export default {
   data() {
     return {
