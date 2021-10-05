@@ -67,8 +67,7 @@ export default {
   },
   methods: {
     submit() {
-      // Mock interaction
-      // send the data to the api
+      // data to send the api via POST method
       let config = {
         method: "POST",
         headers: {
@@ -79,15 +78,20 @@ export default {
           content: this.post.content,
         }),
       };
+
+      // if route.params.id present then method is PUT
       let id = "";
       if ("id" in this.$route.params) {
         id = this.$route.params.id;
         config.method = "PUT";
       }
 
-      fetch(this.$backendHost + "/posts/" + id, config).then((res) => {
-        if (res.status == 200) this.success();
-      });
+      // actually send the data
+      fetch(this.$backendHost + "/posts/" + id, config)
+        .then((res) => {
+          if (res.status == 200) this.success();
+        })
+        .catch(()=>this.error());
     },
     success() {
       Swal.fire({
@@ -95,6 +99,12 @@ export default {
         text: "Post Saved",
       }).then(() => {
         this.$router.push("/dashboard/posts");
+      });
+    },
+    error() {
+      Swal.fire({
+        icon: "error",
+        text: "Error!",
       });
     },
   },
