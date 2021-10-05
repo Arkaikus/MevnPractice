@@ -1,4 +1,5 @@
 let db = require("mongoose");
+// XXX: change url if needed
 let url = "mongodb://root:root@localhost:27017/mevn-practice";
 
 // db.Promise = global.Promise;
