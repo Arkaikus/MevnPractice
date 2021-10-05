@@ -59,6 +59,7 @@
       <label for="input5" class="form-label">State</label>
       <select id="input5" class="form-select">
         <option selected>{{ customer.state }}</option>
+        <option>Example</option>
         <option>...</option>
       </select>
     </div>
@@ -101,28 +102,61 @@ export default {
     // get the info from the api using fetch
     if ("id" in this.$route.params) {
       let id = this.$route.params.id;
-      // TODO: fetch data from the api with the id
-      this.customer = {
-        _id: id,
-        name: "Name from bd",
-        email: "customer@email.com from bd",
-        address: "Address from bd",
-        city: "City from bd",
-        state: "State from bd",
-        postal_code: "760001 from bd",
-      };
+      // fetch data
+      fetch(this.$backendHost + "/customers/" + id)
+        // response to json
+        .then((res) => res.json())
+        // read data
+        .then((data) => {
+          this.customer = data;
+          // FIXME: trigger select#input5
+        });
     }
   },
   methods: {
     submit() {
-      // Mock interaction
-      // TODO: send the data to the api
-      console.log(this.customer);
+      // data to send the api via POST method
+      let config = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: this.customer.name,
+          email: this.customer.email,
+          address: this.customer.address,
+          city: this.customer.city,
+          state: this.customer.state,
+          postal_code: this.customer.postal_code,          
+        }),
+      };
+
+      // if route.params.id present then method is PUT
+      let id = "";
+      if ("id" in this.$route.params) {
+        id = this.$route.params.id;
+        config.method = "PUT";
+      }
+
+      // actually send the data
+      fetch(this.$backendHost + "/customers/" + id, config)
+        .then((res) => {
+          if (res.status == 200) this.success();
+        })
+        .catch(()=>this.error());
+    },
+    success() {
       Swal.fire({
         icon: "success",
         text: "Customer Saved",
       }).then(() => {
         this.$router.push("/dashboard/customers");
+      });
+    },
+    error() {
+      Swal.fire({
+        icon: "error",
+        text: "Error!",
       });
     },
   },

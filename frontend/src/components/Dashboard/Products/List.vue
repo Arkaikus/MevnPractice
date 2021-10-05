@@ -106,7 +106,9 @@ export default {
   },
   methods: {
     remove(_id) {
+      // send delete request
       fetch(this.$backendHost + "/products/" + _id, { method: "DELETE" })
+        // read response status == 204
         .then((res) => {
           if (res.status == 204) this.success();
         })

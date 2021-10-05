@@ -72,7 +72,12 @@
             >
               Edit
             </router-link>
-            <button class="btn btn-sm btn-danger">Delete</button>
+            <button
+              class="btn btn-sm btn-danger"
+              @click.prevent="remove(customer._id)"
+            >
+              Delete
+            </button>
           </td>
         </tr>
       </tbody>
@@ -81,7 +86,9 @@
 </template>
 
 <script>
-// @click.prevent="deleteStudent(student._id)" <- delete button action
+import Swal from "sweetalert2";
+import "@sweetalert2/themes/bootstrap-4/bootstrap-4.css";
+
 // TODO: Implement pagination
 export default {
   data() {
@@ -90,18 +97,37 @@ export default {
     };
   },
   created() {
-    // TODO: Fetch data from api
-    this.customers = [
-      {
-        _id: "1",
-        name: "Name",
-        email: "customer@email.com",
-        address: "Address",
-        city: "City",
-        state: "State",
-        postal_code: "760001",
-      },
-    ];
+    // fetch data
+    fetch(this.$backendHost + "/customers")
+      // response to json
+      .then((res) => res.json())
+      // read data
+      .then((data) => {
+        this.customers = data;
+      });
+  },
+  methods: {
+    remove(_id) {
+      // send delete request
+      fetch(this.$backendHost + "/customers/" + _id, { method: "DELETE" })
+        // read response status == 204
+        .then((res) => {
+          if (res.status == 204) this.success();
+        })
+        .catch(() => this.error());
+    },
+    success() {
+      Swal.fire({
+        icon: "success",
+        text: "Customer Deleted",
+      }).then(() => this.$router.go());
+    },
+    error() {
+      Swal.fire({
+        icon: "error",
+        text: "Error!",
+      });
+    },
   },
 };
 </script>
