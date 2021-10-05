@@ -1,15 +1,12 @@
-let db = require("mongoose");
-// XXX: change url if needed
-let url = "mongodb://root:root@localhost:27017/mevn-practice";
+import mongoose from "mongoose";
 
-// db.Promise = global.Promise;
-db.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
+// XXX: change url if needed
+let url = "mongodb://root:root@localhost:27017/mevn-practice?authSource=admin";
+
+mongoose.connect(url).then(() => {
     console.log("Database connected");
 }).catch((error) => {
     console.log("Database could't be connected to: " + error);
 });
 
-exports.db = db;
+export { mongoose as db };

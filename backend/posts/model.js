@@ -1,4 +1,4 @@
-import { db } from "../database";
+import { db } from "../database.js";
 
 let postSchema = new db.Schema(
   {
