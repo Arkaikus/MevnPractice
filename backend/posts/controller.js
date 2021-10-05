@@ -1,42 +1,40 @@
 
-// import post_model from "./model";
+import post_model from "./model.js";
 
 export function get(req, res) {
-    // TODO: Use post_model.find
-    res.json({
-        "message": "get post list"
-    })
+    // find => then => return as json
+    post_model.find()
+        .then(docs => res.json(docs))
+        .catch(error => res.status(400).json(error));
 }
 
 export function create(req, res) {
-    // TODO: Use post_model.create
-    res.json({
-        "message": "create post",
-        "body":req.body
-    })
+    // save data => then => return doc
+    post_model
+        .create(req.body)
+        .then(doc => res.json(doc))
+        .catch(error => res.status(400).json(error));
 }
 
 export function detail(req, res) {
-    // TODO: Use post_model.findById
-    res.json({
-        "message": "detail post",
-        "id": req.params.id
-    })
+    // find by id => then => return doc
+    post_model
+        .findById(req.params.id)
+        .then(doc => res.json(doc))
+        .catch(error => res.status(400).json(error));
 }
 
 export function update(req, res) {
-    // TODO: Use post_model.findByIdAndUpdate
-    res.json({
-        "message": "update post",
-        "id": req.params.id,
-        "data": req.body
-    })
+    // find by id => save data => then => return doc
+    post_model.findByIdAndUpdate(req.params.id, req.body)
+        .then(doc => res.json(doc))
+        .catch(error => res.status(400).json(error));
 }
 
 export function remove(req, res) {
-    // TODO: Use post_model.findByIdAndRemove
-    res.json({
-        "message": "delete post",
-        "id": req.params.id
-    })
+    // find by id => delete => then return empty
+    post_model
+        .findByIdAndDelete(req.params.id)
+        .then(() => res.status(204).json())
+        .catch(error => res.status(400).json(error));
 }
