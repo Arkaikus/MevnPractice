@@ -1,17 +1,39 @@
 import { db } from "../database";
 
+// Example
+// {
+//   "name":"example",
+//   "email":"example@email.com",
+//   "address":"example",
+//   "city":"example",
+//   "state":"example",
+//   "postal_code":"example"
+// }
+
 let customerSchema = new db.Schema(
   {
-    title: {
+    name: {
       type: String,
     },
-    content: {
+    email: {
       type: String,
-    }
+    },
+    address: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    postal_code: {
+      type: String,
+    },
   },
   {
     collection: "customers",
   }
 );
-let customer_model = db.model("Post", customerSchema);
+let customer_model = db.model("Customer", customerSchema);
 export default customer_model;

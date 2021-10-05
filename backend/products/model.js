@@ -2,10 +2,10 @@ import { db } from "../database";
 
 let productSchema = new db.Schema(
   {
-    title: {
+    name: {
       type: String,
     },
-    content: {
+    description: {
       type: String,
     }
   },
@@ -13,5 +13,5 @@ let productSchema = new db.Schema(
     collection: "products",
   }
 );
-let product_model = db.model("Post", productSchema);
+let product_model = db.model("Product", productSchema);
 export default product_model;
