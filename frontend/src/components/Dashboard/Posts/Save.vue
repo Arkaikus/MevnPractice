@@ -41,13 +41,12 @@
 import Swal from "sweetalert2";
 import "@sweetalert2/themes/bootstrap-4/bootstrap-4.css";
 
-export default {  
+export default {
   data() {
     return {
       post: {
         title: "",
         content: "",
-        state: "to-post",
       },
     };
   },
@@ -56,20 +55,41 @@ export default {
     // get the info from the api using fetch
     if ("id" in this.$route.params) {
       let id = this.$route.params.id;
-      // TODO: fetch data from the api with the id
-      this.post = {
-        _id: id,
-        title: "Post from bd",
-        content: "Content from bd",
-        state: "to-post",
-      };
+      // fetch data
+      fetch(this.$backendHost + "/posts/" + id)
+        // response to json
+        .then((res) => res.json())
+        // read data
+        .then((data) => {
+          this.post = data;
+        });
     }
   },
   methods: {
     submit() {
       // Mock interaction
-      // TODO: send the data to the api
-      console.log(this.post);
+      // send the data to the api
+      let config = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: this.post.title,
+          content: this.post.content,
+        }),
+      };
+      let id = "";
+      if ("id" in this.$route.params) {
+        id = this.$route.params.id;
+        config.method = "PUT";
+      }
+
+      fetch(this.$backendHost + "/posts/" + id, config).then((res) => {
+        if (res.status == 200) this.success();
+      });
+    },
+    success() {
       Swal.fire({
         icon: "success",
         text: "Post Saved",

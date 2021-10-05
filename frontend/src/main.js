@@ -6,4 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App);
+
+app.config.globalProperties.$backendHost="http://localhost:4000"
+app.use(router);
+app.mount('#app');

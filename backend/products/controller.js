@@ -1,4 +1,3 @@
-
 import product_model from "./model.js";
 
 export function get(req, res) {

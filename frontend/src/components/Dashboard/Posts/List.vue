@@ -55,7 +55,6 @@
         <tr>
           <th>Title</th>
           <th>Content</th>
-          <th>State</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -63,7 +62,6 @@
         <tr v-for="post in posts" :key="post._id">
           <td>{{ post.title }}</td>
           <td>{{ post.content }}</td>
-          <td>{{ post.state }}</td>
           <td>
             <router-link
               :to="{ name: 'PostUpdate', params: { id: post._id } }"
@@ -89,15 +87,14 @@ export default {
     };
   },
   created() {
-    // TODO: Fetch data from api
-    this.posts = [
-      {
-        _id: "1",
-        title: "Example",
-        content: "Content example",
-        state: "created",
-      },
-    ];
+    // fetch data
+    fetch(this.$backendHost + "/posts")
+      // response to json
+      .then((res) => res.json())
+      // read data
+      .then((data) => {
+        this.posts = data;
+      });
   },
 };
 </script>
