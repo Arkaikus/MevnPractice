@@ -6,6 +6,10 @@ This repo contains MEVN Stack practice with [bootstrap examples](https://getboot
 
 you can check the vuejs app in [frontend branch](https://github.com/Arkaikus/MevnPractice/tree/frontend)
 
+## Backend
+
+you can check the express api in [backend branch](https://github.com/Arkaikus/MevnPractice/tree/backend)
+
 ## LICENCE
 
 MIT Licence
