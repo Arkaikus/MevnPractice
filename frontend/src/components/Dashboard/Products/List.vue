@@ -70,7 +70,12 @@
             >
               Edit
             </router-link>
-            <button class="btn btn-sm btn-danger">Delete</button>
+            <button
+              class="btn btn-sm btn-danger"
+              @click.prevent="remove(product._id)"
+            >
+              Delete
+            </button>
           </td>
         </tr>
       </tbody>
@@ -79,7 +84,9 @@
 </template>
 
 <script>
-// @click.prevent="deleteStudent(student._id)" <- delete button action
+import Swal from "sweetalert2";
+import "@sweetalert2/themes/bootstrap-4/bootstrap-4.css";
+
 // TODO: Implement pagination
 export default {
   data() {
@@ -88,14 +95,35 @@ export default {
     };
   },
   created() {
-    // TODO: Fetch data from api
-    this.products = [
-      {
-        _id: "1",
-        name: "Example",
-        description: "Description example",
-      },
-    ];
+    // fetch data
+    fetch(this.$backendHost + "/products")
+      // response to json
+      .then((res) => res.json())
+      // read data
+      .then((data) => {
+        this.products = data;
+      });
+  },
+  methods: {
+    remove(_id) {
+      fetch(this.$backendHost + "/products/" + _id, { method: "DELETE" })
+        .then((res) => {
+          if (res.status == 204) this.success();
+        })
+        .catch(() => this.error());
+    },
+    success() {
+      Swal.fire({
+        icon: "success",
+        text: "Product Deleted",
+      }).then(() => this.$router.go());
+    },
+    error() {
+      Swal.fire({
+        icon: "error",
+        text: "Error!",
+      });
+    },
   },
 };
 </script>

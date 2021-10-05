@@ -56,24 +56,56 @@ export default {
     // get the info from the api using fetch
     if ("id" in this.$route.params) {
       let id = this.$route.params.id;
-      // TODO: fetch data from the api with the id
-      this.product = {
-        _id: id,
-        name: "Product from bd",
-        description: "Description from bd"        
-      };
+      // fetch data
+      fetch(this.$backendHost + "/products/" + id)
+        // response to json
+        .then((res) => res.json())
+        // read data
+        .then((data) => {
+          this.product = data;
+        });
     }
   },
   methods: {
     submit() {
-      // Mock interaction
-      // TODO: send the data to the api
-      console.log(this.product);
+      // data to send the api via POST method
+      let config = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: this.product.name,
+          description: this.product.description,
+        }),
+      };
+
+      // if route.params.id present then method is PUT
+      let id = "";
+      if ("id" in this.$route.params) {
+        id = this.$route.params.id;
+        config.method = "PUT";
+      }
+
+      // actually send the data
+      fetch(this.$backendHost + "/products/" + id, config)
+        .then((res) => {
+          if (res.status == 200) this.success();
+        })
+        .catch(()=>this.error());
+    },
+    success() {
       Swal.fire({
         icon: "success",
         text: "Product Saved",
       }).then(() => {
         this.$router.push("/dashboard/products");
+      });
+    },
+    error() {
+      Swal.fire({
+        icon: "error",
+        text: "Error!",
       });
     },
   },
