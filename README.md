@@ -31,48 +31,34 @@ you can check the express api also in [backend branch](https://github.com/Arkaik
   - **routes.js**: app setup with products routes
 
 ## Frontend
+### Vuejs Heroku
 
-you can check the vuejs app also in [frontend branch](https://github.com/Arkaikus/MevnPractice/tree/frontend)
+- Create `static.json` file in vuejs app folder, in this example `frontend`
 
-### Setup
+```json
+{
+    "root": "dist",
+    "clean_urls": true,
+    "routes": {
+        "/**": "index.html"
+    }
+}
+```
+- Install [HerokuCLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+- Open terminal in repo folder
+- Run
 
-- Open terminal in frontend folder
-- Run `npm install` to install dependences
-- Run `npm run serve` to run vuejs app
+```bash
+heroku login
+heroku create <app-name>
+heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack
+heroku buildpacks:add heroku/nodejs
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static
+heroku config:set PROJECT_PATH=frontend --app <app-name>
+git push heroku main
+```
 
-### Views
-
-- Landing page
-
-![landing page image](img/1.png)
-
-- Sign in
-
-![sign in image](img/2.png)
-
-- Sign up
-
-![sign up image](img/5.png)
-
-- Dashboard
-
-![dashboard image](img/3.png)
-
-- Pricing
-
-![pricing image](img/4.png)
-
-- Features
-
-![features image](img/6.png)
-
-- Heroes
-
-![heroes image](img/7.png)
-
-- Carousel
-
-![carousel image](img/8.png)
+- **It's recommended using heroku client to specify buildpacks**
 
 ## LICENCE
 
