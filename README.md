@@ -49,13 +49,18 @@ you can check the express api also in [backend branch](https://github.com/Arkaik
 - Run
 
 ```bash
-heroku login
-heroku create <app-name>
-heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack
-heroku buildpacks:add heroku/nodejs
-heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static
-heroku config:set PROJECT_PATH=frontend --app <app-name>
-git push heroku main
+  heroku login
+  heroku create mevnfrontend
+  heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack
+  heroku buildpacks:add heroku/nodejs
+  heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static
+  heroku config:set PROJECT_PATH=frontend --app=mevnfrontend
+  git push heroku main
+```
+- If current branch is different then run
+
+```bash
+  git push heroku <branch>:main
 ```
 
 - **It's recommended using heroku client to specify buildpacks**
