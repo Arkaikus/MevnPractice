@@ -8,6 +8,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 const app = createApp(App);
 
-app.config.globalProperties.$backendHost="http://localhost:4000"
+app.config.globalProperties.$backendHost="https://mevnbackend.herokuapp.com"
 app.use(router);
 app.mount('#app');
