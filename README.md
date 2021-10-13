@@ -44,6 +44,7 @@ you can check the express api also in [backend branch](https://github.com/Arkaik
     }
 }
 ```
+
 - Install [HerokuCLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 - Open terminal in repo folder
 - Run
@@ -58,14 +59,41 @@ you can check the express api also in [backend branch](https://github.com/Arkaik
   heroku buildpacks:add -a mevnfrontend https://github.com/heroku/heroku-buildpack-static
   heroku config:set -a mevnfrontend PROJECT_PATH=frontend
   
-  git push heroku main
+  git push frontend <branch>:main
 ```
-- If current branch is different then run
+- replace `mevnfrontent` with your app name
+- Replace `<branch>` with your current branch name
+- **It's recommended using heroku client to specify buildpacks**
+
+## Backend
+### Expressjs Heroku
+
+- Modify `package.json` file in express app folder, in this example `backend` with
+
+```json
+{
+  "scripts": {    
+    "start": "node app.js"    
+  },  
+}
+```
+
+- Open terminal in repo folder
+- Run
 
 ```bash
-  git push heroku <branch>:main
+  heroku login
+  heroku create mevnbackend
+  git remote rm heroku
+  heroku git:remote -a mevnbackend --remote backend
+  heroku buildpacks:set -a mevnbackend https://github.com/timanovsky/subdir-heroku-buildpack
+  heroku buildpacks:add -a mevnbackend heroku/nodejs
+  heroku config:set -a mevnbackend PROJECT_PATH=backend
+  
+  git push heroku main
 ```
-
+- replace `mevnbackend` with your app name
+- Replace `<branch>` with your current branch name
 - **It's recommended using heroku client to specify buildpacks**
 
 ## LICENCE
